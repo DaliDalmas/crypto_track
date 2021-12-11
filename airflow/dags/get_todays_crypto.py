@@ -12,7 +12,7 @@ from tasks.upload_crypto_to_db import send_data
 dag = DAG(
    dag_id="get_todays_crypto",   # Name of the DAG
    start_date=airflow.utils.dates.days_ago(1),  # The date at which the DAG should first start running
-   schedule_interval=None,  # We will manually trigger the DAG
+   schedule_interval = '@daily',  # We will manually trigger the DAG
 )
 
 run_download_todays_crypto = PythonOperator(
