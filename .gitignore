@@ -109,6 +109,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+airflow/airflow.cfg
+airflow/airflow.db
 
 # Spyder project settings
 .spyderproject
@@ -127,3 +129,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+temp_csvs/*
