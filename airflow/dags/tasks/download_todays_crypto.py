@@ -36,7 +36,7 @@ def get_data():
         todays_data.columns = ['coin_name','coin_value']
         todays_data['currency'] = 'usd'
         todays_data['read_time'] = datetime.now()
-        todays_data.to_csv('temp_csvs/tadays_coin.csv',index=False)
-
+        todays_data.to_csv('temp_csvs/todays_coin.csv',index=False)
+    return None
 if __name__=='__miin__':
     get_data()

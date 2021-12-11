@@ -7,6 +7,7 @@ from airflow.operators.python import task
 from airflow.operators.python_operator import PythonOperator
 
 from tasks.download_todays_crypto import get_data
+from tasks.upload_crypto_to_db import send_data
 # Instantiate a DAG object; this is the starting point of any workflow.
 dag = DAG(
    dag_id="get_todays_crypto",   # Name of the DAG
@@ -17,8 +18,14 @@ dag = DAG(
 run_download_todays_crypto = PythonOperator(
     task_id = 'run_download_todays_crypto',
     python_callable = get_data,
-    dag=dag
+    dag = dag
+)
+
+run_upload_todays_crypto = PythonOperator(
+    task_id = 'run_upload_todays_crypto',
+    python_callable = send_data,
+    dag = dag
 )
 
 # Set the order of execution of tasks.
-run_download_todays_crypto
+run_download_todays_crypto >> run_upload_todays_crypto
