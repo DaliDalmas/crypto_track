@@ -131,3 +131,5 @@ dmypy.json
 .pyre/
 
 temp_csvs/*
+airflow/logs
+airflow/logs/scheduler
